@@ -1,0 +1,15 @@
+name: Fans
+main: com.dogonfire.fans.Fans
+version: 0.0.4
+description: Get fans!
+commands:
+  fan:
+    usage: /<command>
+    description: Use this command to judge another player
+  fans:
+    usage: /<command>
+    description: Use this command to judge another player
+permissions:
+  fans.fan:
+    description: Permission to use /fan
+    default: false
