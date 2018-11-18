@@ -1,11 +1,8 @@
 package com.dogonfire.fans;
 
-import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -16,7 +13,6 @@ import com.dogonfire.fans.PlayerManager.FamousPlayer;
 public class Commands 
 {
 	private Fans  plugin;
-	private Random random = new Random();
 
 	Commands(Fans p)
 	{
@@ -36,7 +32,7 @@ public class Commands
 		{			
 			if (args.length == 0)
 			{
-				CommandInfo(player);
+				commandInfo(player);
 				return true;
 			}
 
@@ -44,9 +40,9 @@ public class Commands
 			{			
 				switch(args[0].toLowerCase())
 				{
-					case "clean" : CommandClean(); break;				
-					case "top" : CommandTop(player, args[0]); break;				
-					default : CommandToggleFanOfPlayer(player, args[0]); break;
+					case "clean" : commandClean(); break;				
+					case "top" : commandTop(player, args[0]); break;				
+					default : commandToggleFanOfPlayer(player, args[0]); break;
 				}
 				
 			}
@@ -57,7 +53,7 @@ public class Commands
 		return true;
 	}
 
-	public void CommandInfo(Player player)
+	public void commandInfo(Player player)
 	{
 		player.sendMessage(ChatColor.YELLOW + "---------- " + this.plugin.getDescription().getFullName() + " ----------");
 		player.sendMessage(ChatColor.AQUA + "By DogOnFire");
@@ -83,14 +79,14 @@ public class Commands
 		player.sendMessage(ChatColor.AQUA + "");				
 	}	
 
-	public void CommandClean()
+	public void commandClean()
 	{
 		plugin.getPlayerManager().CleanFans();
 		
 		plugin.log("Cleaning Done.");
 	}
 	
-	public void CommandTop(Player player, String idolPlayerName)
+	public void commandTop(Player player, String idolPlayerName)
 	{		
 		int n = 1;
 		
@@ -109,7 +105,7 @@ public class Commands
 		}
 	}
 	
-	public void CommandToggleFanOfPlayer(Player player, String idolPlayerName)
+	public void commandToggleFanOfPlayer(Player player, String idolPlayerName)
 	{		
 		UUID idolId = plugin.getServer().getOfflinePlayer(idolPlayerName).getUniqueId();
 
@@ -153,7 +149,7 @@ public class Commands
 		}
 	}		
 
-	public void CommandReload(Player player)
+	public void commandReload(Player player)
 	{
 		this.plugin.reloadSettings();
 		

@@ -6,6 +6,6 @@ import java.util.List;
 
 public class PlayerPersonality
 {
-	List<String> words = new ArrayList<String>();
-	HashMap<String, Float> wordStats = new HashMap<String, Float>();
+	public List<String> words = new ArrayList<String>();
+	public HashMap<String, Float> wordStats = new HashMap<String, Float>();
 }

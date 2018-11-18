@@ -83,6 +83,7 @@ public class Fans extends JavaPlugin
 		
 	public void onDisabled()
 	{
+		// Nothing to see here yet
 	}
 	
 	public void log(String message)
